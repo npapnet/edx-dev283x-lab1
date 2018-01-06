@@ -6,7 +6,7 @@ module.exports = {
     },
     getPosts(req, res) {
       console.log('sending post')
-      res.status(200).send(req.store.posts)
+      res.status(200).send(JSON.stringify(req.store.posts, null, 2))
     },
     addPost (req, res){
       console.log('adding post')
@@ -22,8 +22,8 @@ module.exports = {
       
     },
     removePost(req, res){
-      // store.accounts.splice(req.params.id, 1)
-      // res.status(204).send()
+      store.posts.splice(req.params.id, 1)
+      res.status(204).send()
     }
   }
   
