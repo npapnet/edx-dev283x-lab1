@@ -12,15 +12,18 @@ module.exports = {
     res.status(200).send(comments)
   },
   addComment(req, res) {
-    let newComment = req.body;
-    let commentid = req.store.posts[req.params.id].length;
+    let newComment = req.body.text;
     req.store.posts[req.params.id].comments.push(newComment);
     res.status(201).send({
-      commentid: commentid
+      commentid: req.store.posts[req.params.id].length
     })
+    console.log ("added comment: ", newComment)
   },
   updateComment(req, res) {
-    res.status(201).send({id: id})
+    let CommentContent = req.body.text;
+    req.store.posts[req.params.postId].comments[req.params.commentId] = CommentContent;
+    res.status(201).send({id: req.params.postId})
+    console.log ("update comment [", req.params.postId, "]: " , CommentContent)
   },
   removeComment(req, res) {
     //let commentid = req.params.commentId;

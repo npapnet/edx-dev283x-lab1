@@ -20,14 +20,16 @@ module.exports = {
     res.status(201).send({
       id: id
     });
+    console.log('> post added');
   },
   updatePost(req, res) {
-    console.log('updating post');
     req.store.posts[req.params.id] = req.body;
     res.status(200).send(req.store.posts[req.params.id]);
+    console.log('> post updated');
   },
   removePost(req, res) {
-    store.posts.splice(req.params.id, 1);
+    req.store.posts.splice(req.params.id, 1);
     res.status(204).send();
+    console.log('> post deleted');
   }
 }
