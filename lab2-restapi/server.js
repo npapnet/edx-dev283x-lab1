@@ -32,11 +32,16 @@ app.use((req,res, next)=>{
 
 
 app.get('/posts', routes.posts.getPosts)
+app.get('/posts/:id/comments', routes.comments.getComments)
 
 app.post('/posts', routes.posts.addPost)
+app.post('/posts/:id/comments', routes.comments.addComment)
 
 app.put('/posts/:id', routes.posts.updatePost)
+app.put('/posts/:postId/comments/:commentId', routes.comments.updateComment)
+
 
 app.delete('/posts/:id', routes.posts.removePost)
+app.delete('/posts/:postId/comments/:commentId', routes.comments.removeComment)
 
 app.listen(3000)
