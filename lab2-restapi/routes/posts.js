@@ -1,9 +1,9 @@
 //console.log ('  > importing posts.js')
 
 module.exports = {
-  test() {
-    console.log('hello');
-  },
+  // test() {
+  //   console.log('hello');
+  // },
   getPosts(req, res) {
     //res.status(200).send(JSON.stringify(req.store.posts, null, 2))
     if (req.query.id) {
